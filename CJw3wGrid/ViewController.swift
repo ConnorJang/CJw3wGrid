@@ -11,7 +11,8 @@ import CoreLocation
 import Foundation
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var gridText: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,6 +45,8 @@ class ViewController: UIViewController {
             let seLat = lat - (2*0.000027)
             let seLong = long + (2*0.000027)
             
+            gridText.text = "Latitude = \(lat) Longitude = \(long)\nGrid Bounding Box:\n  NW corner:\n    lat = \(nwLat) \n    long = \(nwLong)\n  SE corner: \n    lat = \(seLat)\n    long = \(seLong)\n"
+            
             //Sample URL for the api call: https://api.what3words.com/v2/grid?bbox=52.208867,0.117540,52.207988,0.116126&format=json&key=BJEVPZLZ
             // Subbing in the calucalted bounding 
             let url = URL(string: "https://api.what3words.com/v2/grid?bbox=\(nwLat),\(nwLong),\(seLat),\(seLong)&format=json&key=BJEVPZLZ")
@@ -61,6 +64,7 @@ class ViewController: UIViewController {
                         if let json = jsonSerialized, let status = json["status"], let lines = json["lines"] {
                             print(status)
                             print(lines)
+                            
                             //for line in (lines) {
                             //    //print("line = \(line)")
                             //    print(line)
