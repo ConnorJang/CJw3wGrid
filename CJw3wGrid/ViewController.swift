@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import Foundation
+import SwiftyJSON
 
 class ViewController: UIViewController {
     @IBOutlet weak var gridText: UITextView!
@@ -57,25 +58,19 @@ class ViewController: UIViewController {
                 if let data = data {
                     do {
                         // Convert the data to JSON
-                        let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                        let json = try JSON(data: data)
+                        print(json["lines"])
                         
-                        // Sets the json values recieved to variables
-                        //     ex:  let url = json["url"], let explanation = json["explanation"]
-                        if let json = jsonSerialized, let status = json["status"], let lines = json["lines"] {
-                            print(status)
-                            print(lines)
-                            
-                            //for line in (lines) {
-                            //    //print("line = \(line)")
-                            //    print(line)
-                            //}
-                            
-                            
-                            //for (key, value) in json {
-                            //    print(key)
-                            //    print(value)
-                            //}
+//                        for line in json["lines"] {
+//                            print("Line....Start = \(line)")
+//                        }
+                        //print("\n\nAFTER FOR LOOP\n\n")
+                        let lineObject = json["lines"]
+                        for i in 0...lineObject.count-1 {
+                            print(lineObject[i]["start"]["lat"])
                         }
+                        
+                       
                     }  catch let error as NSError {
                         print(error.localizedDescription)
                     }

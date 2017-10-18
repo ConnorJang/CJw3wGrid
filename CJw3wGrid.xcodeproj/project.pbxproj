@@ -12,6 +12,7 @@
 		133FF3F91F906B3E000731C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 133FF3F71F906B3E000731C3 /* Main.storyboard */; };
 		133FF3FB1F906B3E000731C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 133FF3FA1F906B3E000731C3 /* Assets.xcassets */; };
 		133FF3FE1F906B3E000731C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 133FF3FC1F906B3E000731C3 /* LaunchScreen.storyboard */; };
+		F7FFA113BF02BF1A4FB1C987 /* Pods_CJw3wGrid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D785DDC6D5224AEB30CD751C /* Pods_CJw3wGrid.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		133FF3FA1F906B3E000731C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		133FF3FD1F906B3E000731C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		133FF3FF1F906B3E000731C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D94084D826239B298FC82F /* Pods-CJw3wGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJw3wGrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJw3wGrid/Pods-CJw3wGrid.release.xcconfig"; sourceTree = "<group>"; };
+		D785DDC6D5224AEB30CD751C /* Pods_CJw3wGrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CJw3wGrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF321FD39766C23A5D629AA3 /* Pods-CJw3wGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJw3wGrid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJw3wGrid/Pods-CJw3wGrid.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FFA113BF02BF1A4FB1C987 /* Pods_CJw3wGrid.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				133FF3F21F906B3E000731C3 /* CJw3wGrid */,
 				133FF3F11F906B3E000731C3 /* Products */,
+				96B2C56EEF0DAC0E85336F24 /* Pods */,
+				D3AD95306CEFAF6C0217C033 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = CJw3wGrid;
 			sourceTree = "<group>";
 		};
+		96B2C56EEF0DAC0E85336F24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF321FD39766C23A5D629AA3 /* Pods-CJw3wGrid.debug.xcconfig */,
+				74D94084D826239B298FC82F /* Pods-CJw3wGrid.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D3AD95306CEFAF6C0217C033 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D785DDC6D5224AEB30CD751C /* Pods_CJw3wGrid.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 133FF4021F906B3E000731C3 /* Build configuration list for PBXNativeTarget "CJw3wGrid" */;
 			buildPhases = (
+				7CA4738B2C0CFCCE6169D2E4 /* [CP] Check Pods Manifest.lock */,
 				133FF3EC1F906B3E000731C3 /* Sources */,
 				133FF3ED1F906B3E000731C3 /* Frameworks */,
 				133FF3EE1F906B3E000731C3 /* Resources */,
+				39E9B56506FB255F364175BF /* [CP] Embed Pods Frameworks */,
+				1096E063C9C63D9599267C6D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1096E063C9C63D9599267C6D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CJw3wGrid/Pods-CJw3wGrid-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39E9B56506FB255F364175BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CJw3wGrid/Pods-CJw3wGrid-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CJw3wGrid/Pods-CJw3wGrid-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CA4738B2C0CFCCE6169D2E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CJw3wGrid-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		133FF3EC1F906B3E000731C3 /* Sources */ = {
@@ -272,6 +353,7 @@
 		};
 		133FF4031F906B3E000731C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF321FD39766C23A5D629AA3 /* Pods-CJw3wGrid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +368,7 @@
 		};
 		133FF4041F906B3E000731C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74D94084D826239B298FC82F /* Pods-CJw3wGrid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
