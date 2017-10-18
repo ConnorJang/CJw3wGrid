@@ -33,18 +33,20 @@ class ViewController: UIViewController {
         {
             var lat, long : Double
             // Rounding Lat/Long to 6 decimal places
-            lat = Double(round(1000000*(locManager.location?.coordinate.latitude ?? -1))/1000000)
-            long = Double(round(1000000*(locManager.location?.coordinate.longitude ?? -1))/1000000)
+            //lat = Double(round(1000000*(locManager.location?.coordinate.latitude ?? -1))/1000000)
+            //long = Double(round(1000000*(locManager.location?.coordinate.longitude ?? -1))/1000000)
+            lat = Double(locManager.location?.coordinate.latitude ?? -1)
+            long = Double(locManager.location?.coordinate.longitude ?? -1)
             print("Latitude---> \(lat) ")
             print("Longitude--> \(long) ")
             
             
             // Variable for the grid nw=NorthWest se=SouthEast
             // 0.000027 = about 3m
-            let nwLat = lat + (2*0.000027)
-            let nwLong = long - (2*0.000027)
-            let seLat = lat - (2*0.000027)
-            let seLong = long + (2*0.000027)
+            let nwLat = lat + (2*0.00003)
+            let nwLong = long - (2*0.00003)
+            let seLat = lat - (2*0.00003)
+            let seLong = long + (2*0.00003)
             
             gridText.text = "Latitude = \(lat) Longitude = \(long)\nGrid Bounding Box:\n  NW corner:\n    lat = \(nwLat) \n    long = \(nwLong)\n  SE corner: \n    lat = \(seLat)\n    long = \(seLong)\n"
             
@@ -67,7 +69,10 @@ class ViewController: UIViewController {
                         //print("\n\nAFTER FOR LOOP\n\n")
                         let lineObject = json["lines"]
                         for i in 0...lineObject.count-1 {
-                            print(lineObject[i]["start"]["lat"])
+                            // Prints the start lat,long and the end lat,long for each line
+                            // Lines make up the w3w grid around your position
+                            print("\(lineObject[i]["start"]["lat"]),\(lineObject[i]["start"]["lng"])")
+                            print("\(lineObject[i]["end"]["lat"]),\(lineObject[i]["end"]["lng"])")
                         }
                         
                        
