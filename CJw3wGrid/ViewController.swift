@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Foundation
 import SwiftyJSON
+import MapKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var gridText: UITextView!
@@ -43,10 +44,10 @@ class ViewController: UIViewController {
             
             // Variable for the grid nw=NorthWest se=SouthEast
             // 0.000027 = about 3m
-            let nwLat = lat + (2*0.00003)
-            let nwLong = long - (2*0.00003)
-            let seLat = lat - (2*0.00003)
-            let seLong = long + (2*0.00003)
+            let nwLat = lat + (5*0.00003)
+            let nwLong = long - (5*0.00003)
+            let seLat = lat - (5*0.00003)
+            let seLong = long + (5*0.00003)
             
             gridText.text = "Latitude = \(lat) Longitude = \(long)\nGrid Bounding Box:\n  NW corner:\n    lat = \(nwLat) \n    long = \(nwLong)\n  SE corner: \n    lat = \(seLat)\n    long = \(seLong)\n"
             
@@ -62,20 +63,28 @@ class ViewController: UIViewController {
                         // Convert the data to JSON
                         let json = try JSON(data: data)
                         print(json["lines"])
-                        
-//                        for line in json["lines"] {
-//                            print("Line....Start = \(line)")
-//                        }
-                        //print("\n\nAFTER FOR LOOP\n\n")
                         let lineObject = json["lines"]
+                        
+                        var lats = Set<Double>()
+                        var longs = Set<Double>();
+                        var points = [CLLocationCoordinate2D]();
                         for i in 0...lineObject.count-1 {
-                            // Prints the start lat,long and the end lat,long for each line
-                            // Lines make up the w3w grid around your position
-                            print("\(lineObject[i]["start"]["lat"]),\(lineObject[i]["start"]["lng"])")
-                            print("\(lineObject[i]["end"]["lat"]),\(lineObject[i]["end"]["lng"])")
+                            lats.insert(lineObject[i]["start"]["lat"].double!)
+                            lats.insert(lineObject[i]["start"]["lat"].double!)
+                            longs.insert(lineObject[i]["start"]["lng"].double!)
+                            longs.insert(lineObject[i]["start"]["lng"].double!)
+                        }
+                        for latitude in lats {
+                            for longitude in longs {
+                                let point = CLLocationCoordinate2D(latitude : latitude, longitude : longitude);
+                                points += [point]
+                            }
                         }
                         
-                       
+                        for point in points {
+                            print("\(point.latitude), \(point.longitude)")
+                        }
+  
                     }  catch let error as NSError {
                         print(error.localizedDescription)
                     }
