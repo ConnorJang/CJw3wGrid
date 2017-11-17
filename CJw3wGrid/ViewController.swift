@@ -74,8 +74,14 @@ class ViewController: UIViewController {
                             longs.insert(lineObject[i]["start"]["lng"].double!)
                             longs.insert(lineObject[i]["start"]["lng"].double!)
                         }
-                        for latitude in lats {
-                            for longitude in longs {
+                        
+                        // Sorting so that first element in 'points' is top-left, last element is bottom-right.
+                        // In other words, 'points' goes left to right, top to bottom.
+                        let sortedLats = lats.sorted(by: >)
+                        let sortedLongs = longs.sorted()
+                        
+                        for latitude in sortedLats {
+                            for longitude in sortedLongs {
                                 let point = CLLocationCoordinate2D(latitude : latitude, longitude : longitude);
                                 points += [point]
                             }
